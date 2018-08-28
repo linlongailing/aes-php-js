@@ -10,7 +10,7 @@
  */
 function encrypt($data, $key, $iv)
 {
-    $encrypted = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, $iv);
+    $encrypted = @mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, $iv);
     return base64_encode($encrypted);
 }
  
