@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试加密</title>
+	<meta charset="utf-8">
+	<script src="./js/aes.js"></script>
+    <script src="./js/pad-zeropadding.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/function.js"></script>
+</head>
+<body>
+我要展示的数据是：
+<div class="show"></div>
+
+<script type="text/javascript">
+	var iv = "LINLONG_520";// 向量
+	var decrypt_key = "LINLONG_520";// 密钥
+	var url="./test.php";
+	$.get(url,function(data){
+		if(data.status==1){
+			var encode_data=decrypt(data.data,decrypt_key,iv);
+			$(".show").html(encode_data);
+		}
+	},'json');
+</script>
+</body>
+</html>
